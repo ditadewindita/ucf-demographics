@@ -1,0 +1,12 @@
+{% if by_college_data %}
+  {{ by_college_data.college }}, {{ by_college_data.classification }}, {{ by_college_data.date }}
+  <ul>
+  {% for data in by_college_data.data %}
+    <li>{{ data.ethnicity }} - Men: {{ data.total.men }}, Women: {{ data.total.women }}</li>
+  {% endfor %}
+  </ul>
+  Total - Men: {{ by_college_data.total.men }}, Women: {{ by_college_data.total.women }}
+  University Total - {{ by_college_data.university_total }}
+{% else %}
+  <p>No data is available.</p>
+{% endif %}
