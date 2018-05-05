@@ -1,38 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>UCF Demographics</title>
+{% extends 'data_visualization/base.html' %}
 
-  <link href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.15.min.css" rel="stylesheet" type="text/css">
-  <link href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.15.min.css" rel="stylesheet" type="text/css">
-  <link href="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.15.min.css" rel="stylesheet" type="text/css">
-  <script
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"></script>
-  <script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.15.min.js"></script>
-  <script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.15.min.js"></script>
-  <script src="https://cdn.pydata.org/bokeh/release/bokeh-tables--0.12.15.min.js"></script>
+<!-- BOKEH SCRIPT -->
+{% block script-content %}
   {{ script | safe }}
+{% endblock %}
 
-</head>
-<body>
-
+<!-- BOKEH DIV -->
+{% block content %}
   {{ div | safe }}
-
-  <!-- {% if by_college_data %}
-    {{ by_college_data.college }}, {{ by_college_data.classification }}, {{ by_college_data.date }}
-    <ul>
-    {% for data in by_college_data.data %}
-      <li>{{ data.ethnicity }} - Men: {{ data.total.men }}, Women: {{ data.total.women }}</li>
-    {% endfor %}
-    </ul>
-    Total - Men: {{ by_college_data.total.men }}, Women: {{ by_college_data.total.women }}
-    University Total - {{ by_college_data.university_total }}
-  {% else %}
-    <p>No data is available.</p>
-  {% endif %} -->
-
-</body>
-</html>
+{% endblock %}

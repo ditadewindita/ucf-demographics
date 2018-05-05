@@ -26,7 +26,7 @@ def index(request):
     title = "University Total in %s" % (by_college_data.term)
     ethnicities = [c.ethnicity for c in by_college_data.data]
     genders = ["Men", "Women"]
-    colors = ["#56C1F0", "#FF8686"]
+    colors = ["#A6D4DF", "#C4ECD2"]
     men = [c.total.men for c in by_college_data.data]
     women = [c.total.women for c in by_college_data.data]
 
