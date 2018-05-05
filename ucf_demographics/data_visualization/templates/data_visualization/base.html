@@ -1,27 +1,49 @@
 <!DOCTYPE html>
-{% load staticfiles %}
+{% load static %}
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>UCF Demographics</title>
 
+  <!-- BOKEH CSS -->
   <link href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.15.min.css" rel="stylesheet" type="text/css">
   <link href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.15.min.css" rel="stylesheet" type="text/css">
   <link href="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.15.min.css" rel="stylesheet" type="text/css">
-  <script
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"></script>
+  <!-- BOOTSTRAP CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <!-- BOOTSTRAP JS/JQUERY -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  <!-- BOKEH SCRIPTS -->
   <script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.15.min.js"></script>
   <script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.15.min.js"></script>
   <script src="https://cdn.pydata.org/bokeh/release/bokeh-tables--0.12.15.min.js"></script>
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'data_visualization/css/style.css' %}" />
 
+  <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet">
+
+  <!-- PAGE-SPECIFIC JS -->
   {% block script-content %}
   {% endblock %}
 
 </head>
 <body>
-  {% block content %}
-  {% endblock %}
+  <nav class="navbar navbar-light bg-light" id="nav">
+    <!-- <a class="navbar-brand" href="#">Diversity.</a> -->
+    <div class="container" id="nav-content">
+      Diversity
+      <div id="nav-content-sub">
+        An in-depth look at UCF's dynamic student body
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid" id="content">
+    {% block content %}
+    {% endblock %}
+  </div>
+
 </body>
 </html>

@@ -26,7 +26,7 @@ def index(request):
     title = "University Total in %s" % (by_college_data.term)
     ethnicities = [c.ethnicity for c in by_college_data.data]
     genders = ["Men", "Women"]
-    colors = ["#A6D4DF", "#C4ECD2"]
+    colors = ["#FFCC00", "#FFE685"]
     men = [c.total.men for c in by_college_data.data]
     women = [c.total.women for c in by_college_data.data]
 
@@ -37,13 +37,27 @@ def index(request):
         'WomenRatio' : [women[i] * 100 / (men[i] + women[i]) for i in range(len(women))]
     }
 
+    # Whole bar stats
     hover = HoverTool(tooltips = [
         ("Men", "@Men (@MenRatio{0.2f}%)"),
         ("Women", "@Women (@WomenRatio{0.2f}%)")
     ])
 
-    plot = figure(y_range = ethnicities, plot_height = 400, title = title, toolbar_location = None, tools = [hover])
-    plot.hbar_stack(genders, y = 'ethnicities', height = 0.4, color = colors, source = ColumnDataSource(data), legend = [value(g) for g in genders])
+    plot = figure(y_range = ethnicities, plot_height = 400, plot_width = 600, title = title, toolbar_location = None, tools = [hover])
+    renderers = plot.hbar_stack(genders, y = 'ethnicities', height = 0.4, color = colors, source = ColumnDataSource(data), legend = [value(g) for g in genders], name = genders)
+
+    # # Stack bar specific tooltip
+    # for r in renderers:
+    #     gender = r.name
+    #     if gender == 'Men':
+    #         hover = HoverTool(tooltips=[
+    #             ("Men", "@Men (@MenRatio{0.2f}%)")
+    #             ], renderers = [r])
+    #     else:
+    #         hover = HoverTool(tooltips=[
+    #             ("Women", "@Women (@WomenRatio{0.2f}%)")
+    #             ], renderers = [r])
+    #     plot.add_tools(hover)
 
     # plot.y_range.range_padding = 0.05
     # plot.x_range.start = 0
