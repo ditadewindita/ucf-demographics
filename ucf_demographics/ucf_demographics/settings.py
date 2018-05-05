@@ -70,7 +70,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ucf_demographics.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
@@ -78,9 +77,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'ucf_demographics',
+        'ENFORCE_SCHEMA': False,
+        # 'USER': 'ditadewindita',
+        # 'PASSWORD': 'deetdeetadmin',
+        'HOST': 'mongodb://ditadewindita:deetdeetadmin@ucfdemographics-shard-00-00-tyo4r.mongodb.net:27017,ucfdemographics-shard-00-01-tyo4r.mongodb.net:27017,ucfdemographics-shard-00-02-tyo4r.mongodb.net:27017/ucf_demographics?ssl=true&ssl_cert_reqs=CERT_NONE&replicaSet=UCFDemographics-shard-0&authSource=admin',
+        'POST': 27017,
+        # 'AUTH_MECHANISM': 'SCRAM-SHA-1',
+        # 'AUTH_SOURCE': 'ucf_demographics',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators

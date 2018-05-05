@@ -17,6 +17,9 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^data_visualization/', include('data_visualization.urls')),
+    # set routes to start at /
+    url(r'^', include('data_visualization.urls')),
+
+    # admin portal
     url(r'^admin/', admin.site.urls),
 ]
