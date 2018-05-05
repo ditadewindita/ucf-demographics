@@ -23,7 +23,7 @@ def index(request):
     except DataByCollege.DoesNotExist:
         raise HttpResponse(status = 404)
 
-    title = "University Total in %s" % (by_college_data.date)
+    title = "University Total in %s" % (by_college_data.term)
     ethnicities = [c.ethnicity for c in by_college_data.data]
     genders = ["Men", "Women"]
     colors = ["#56C1F0", "#FF8686"]
