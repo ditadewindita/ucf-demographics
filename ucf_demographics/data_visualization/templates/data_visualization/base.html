@@ -41,8 +41,49 @@
   </nav>
 
   <div class="container-fluid" id="content">
+    <div id="content-top">
+      <h1 class="display-4">Gender and Racial Demographics at UCF</h1>
+      <p class="lead">With over 60,000 students, UCF has a mixture of people from
+        vastly different backgrounds. This project aims to visualize UCF's diversity
+        by aggregating data from the official <a href="https://ikm.ucf.edu/facts-and-reports/ucf-fact-book/" target="new">UCF Fact Book</a> and plotting it to
+        conceptualize diversity over the course of the years in specific colleges
+        and the overall student population.</p>
+      <hr class="my-4">
+      <h2>Introduction</h2>
+      <p>Going into a lecture, whether it be an introductory course or a high-level elective,
+        we notice different combinations and patterns of diversity in our classes. Below you
+        will find data that will show those differences across your classes through various
+        groupings you can interact with.</p>
+      <!-- <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+      </p> -->
+    </div>
+
     {% block content %}
     {% endblock %}
+  </div>
+
+  <div class="container-fluid" id="footer">
+    <div id="footer-content">
+      <div class="row">
+        <div class="col" id="footer-bio">
+          <h5>Made By</h5>
+          <img src="{% static 'data_visualization/images/me.jpg' %}" class="rounded-circle float-left">
+          <br><a href="http://dewindita.me" target="new">Haerunnisa Dewindita</a>
+          <br>B.S Computer Science and Mathematics, Spring '19
+        </div>
+        <div class="col">
+          <h5>Credits</h5>
+            <a href="https://ikm.ucf.edu/facts-and-reports/ucf-fact-book/" target="new">UCF Fact Book</a>
+            <br>Header Photo: <a href="https://today.ucf.edu/ucf-in-photos/photos-best-photos-2017/" target="new">UCF Today</a>
+
+          <p style="margin-top:10px">
+            View source code on <a href="https://github.com/ditadewindita/ucf-demographics" target="new">Github</a> | Made with <3 in Orlando, FL
+          </p>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </body>

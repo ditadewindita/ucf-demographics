@@ -6,6 +6,4 @@ from django.contrib import admin
 # Register your models here.
 from .models import GenderData, EthnicityData, DataByCollege
 
-admin.site.register(GenderData)
-admin.site.register(EthnicityData)
-admin.site.register(DataByCollege)
+admin.site.register([GenderData, EthnicityData, DataByCollege])
