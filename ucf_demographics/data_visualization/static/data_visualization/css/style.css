@@ -1,5 +1,5 @@
 a {
-  color: #CFB75A;
+  color: #C9A61A;
 }
 
 a:hover {
@@ -9,7 +9,7 @@ a:hover {
 #nav {
   height: 400px;
   padding: 10px;
-  background: gray url("../images/header3.jpg") no-repeat;
+  background: gray url("../images/header1.jpg") no-repeat;
   background-size: cover;
   background-position: center center;
   min-width: 840px;
@@ -69,4 +69,8 @@ a:hover {
   width: 70px;
   margin-right: 15px;
   border:5px solid #fff;
+}
+
+.nav-link:active:focus, .nav-link.active.show, .nav-link.active {
+  background-color: #C9A61A;
 }
