@@ -1,5 +1,5 @@
 # UCF Demographics
-With over 60,000 students, UCF has a mixture of people from vastly different backgrounds. This Django project aims to visualize UCF's diversity by aggregating data from the official [UCF Fact Book](https://ikm.ucf.edu/facts-and-reports/ucf-fact-book/) and plotting it to conceptualize diversity over the course of the years in specific colleges, and the overall student population.
+With over 60,000 students, UCF has a mixture of people from vastly different backgrounds. This Django project aims to visualize UCF's diversity by aggregating data from the official [UCF Fact Book](https://ikm.ucf.edu/facts-and-reports/ucf-fact-book/) and plotting it to conceptualize diversity over the course of the years in specific colleges and the overall student population.
 
 Created By: Haerunnisa Dewindita
 
@@ -27,6 +27,10 @@ $ python3 manage.py runserver
 - ~~Create initial Bokeh graph for total university~~
   - ~~With stacked `HBars` and `HoverTools`~~
 - Create initial layout with Bootstrap
-- Automate data collection
-- Collect data for Fall 2016 from the colleges
-- Collect data until Spring 2018 from the colleges
+- Collect data & turn to CSV:
+  - Fall 2016
+  - Spring 2017
+  - Summer 2017
+  - Fall 2017
+  - Spring 2018
+- Create python script to parse CSV to JSON and register to DB

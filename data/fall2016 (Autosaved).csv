@@ -1,0 +1,16 @@
+College,College Code,Asian,Asian,Black/African American,Black/African American,Hispanic/Latino,Hispanic/Latino,"AmericanIndian/Alaska Native","AmericanIndian/Alaska Native",Multi-racial,Multi-racial,Non-resident Alien,Non-resident Alien,Native Hawaiian/Other Pacific Islander,Native Hawaiian/Other Pacific Islander,White,White,Not Specified,Not Specified,Total,Total,University Total
+,,Men,Women,Men,Women,Men,Women,Men,Women,Men,Women,Men,Women,Men,Women,Men,Women,Men,Women,Men,Women,
+University Total,ALL,"1,928","1,872","2,681","4,450","6,733","8,616",48,66,998,"1,318","1,225",820,47,73,"15,049","17,666",329,416,"29,038","35,297","64,335"
+College of Arts & Humanities,CAH,82,130,231,253,675,742,4,1,96,138,44,39,1,4,"1,538","1,715",26,31,"2,697","3,053","5,750"
+College of Business Administration,CBA,283,235,433,368,"1,261",897,11,4,171,122,116,98,7,8,"3,034","1,757",53,34,"5,369","3,523","8,892"
+College of Education & Human Performance,CEDHP,62,85,217,434,304,842,1,11,42,92,16,53,0,4,823,"2,323",27,72,"1,492","3,916","5,408"
+College of Engineering & Computer Science,CECS,644,153,620,143,"1,931",473,12,4,298,90,633,176,16,1,"4,211",767,83,13,"8,448","1,820","10,268"
+College of Graduate Studies,GA,4,3,10,7,9,10,0,0,1,1,8,10,0,0,44,35,2,4,78,70,148
+College of Health & Public Affairs,COHPA,263,411,437,"1,406",740,1849,5,15,122,230,24,47,11,22,"1,400","3,061",22,97,"3,024","7,138","10,162"
+College of Medicine,COM,264,270,106,239,391,563,2,1,44,116,22,47,1,4,587,770,49,50,"1,466","2,060","3,526"
+College of Nursing,CON,31,133,29,284,80,434,2,8,18,91,0,13,6,11,204,"1,388",5,35,375,2397,"2,772"
+College of Optics & Photonics,CREOL,7,0,3,1,17,7,0,0,7,2,66,11,1,0,81,18,2,0,184,39,223
+College of Sciences,COS,212,317,404,983,925,"2,065",6,12,147,316,116,149,2,11,"2,062","3,731",26,46,"3,900","7,630","11,530"
+College of Undergrad Studies,UGST,24,39,103,122,163,203,2,2,21,36,6,9,0,3,376,485,5,7,700,906,"1,606"
+Rosen College Hospitality Management,RCHM,32,70,64,177,159,464,2,7,23,71,24,65,1,5,466,"1,411",7,11,778,2281,"3,059"
+Undeclared,UNDC,20,26,24,33,78,67,1,1,8,13,150,103,1,0,223,205,22,16,527,464,991

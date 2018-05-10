@@ -76,23 +76,18 @@ def get_chart(college, term):
         script, div = components(plot)
         return (script, div)
 
-def college_data(request, college, term):
-    if request.method == 'GET':
-        script, div = get_chart(college, term)
-        context = {
-            'script' : script,
-            'div': div
-        }
+def college_data(college, term):
+    script, div = get_chart(college, term)
+    context = {
+        'script' : script,
+        'div': div
+    }
 
-        return HttpResponse(script, div)
+    return context
 
 def index(request):
-    # college = "Total"
-    # term = "Fall 2016"
-    # script, div = get_chart(college, term)
-    context = {
-        # 'script' : script,
-        # 'div': div
-    }
+    college = "Total"
+    term = "Fall 2016"
+    context = college_data(college, term)
 
     return render(request, 'data_visualization/index.html', context)

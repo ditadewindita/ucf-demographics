@@ -24,7 +24,7 @@ class EthnicityData(models.Model):
 
 class DataByCollege(models.Model):
     college = models.CharField(max_length = 50)
-    classification = models.CharField(max_length = 50)
+    college_code = models.CharField(max_length = 50)
     data = models.ArrayModelField(
         model_container=EthnicityData,
     )
