@@ -6,12 +6,15 @@ chardet==3.0.4
 cryptography==2.2.2
 dataclasses==0.5
 decorator==4.3.0
+dj-database-url==0.5.0
 Django==2.0.5
+django-heroku==0.3.1
 django-mongodb-engine==0.6.0
 djangotoolbox==1.8.0
 djongo==1.2.27
 dnspython==1.15.0
 gssapi==1.5.0
+gunicorn==19.8.1
 idna==2.6
 ipaddress==1.0.22
 Jinja2==2.10
@@ -22,6 +25,7 @@ numpy==1.14.3
 packaging==17.1
 pandas==0.22.0
 pipenv==2018.5.18
+psycopg2==2.7.4
 pyasn1==0.4.2
 pycparser==2.18
 pymongo==3.6.1
@@ -37,5 +41,4 @@ tornado==5.0.2
 urllib3==1.22
 virtualenv==15.2.0
 virtualenv-clone==0.3.0
-psycopg2==2.7.2
-gunicorn==19.8.1
+whitenoise==3.3.1
