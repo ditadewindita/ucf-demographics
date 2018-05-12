@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from django.template import loader
 from math import pi
@@ -18,13 +18,15 @@ from bokeh.models import SingleIntervalTicker, LinearAxis
 # models
 from .models import DataByCollege, EthnicityData, GenderData
 
-def get_chart(college, term):
+def get_chart(college_code, term):
         try:
-            by_college_data = DataByCollege.objects.get(college = college, term = term)
+            by_college_data = get_object_or_404(DataByCollege, college_code = college_code, term = term)
+            # by_college_data = DataByCollege.objects.get(college_code = college_code, term = term)
         except DataByCollege.DoesNotExist:
             raise HttpResponse(status = 404)
 
-        title = "%s in %s" % (by_college_data.college, by_college_data.term)
+        college = by_college_data.college
+        title = "%s in %s" % (college, by_college_data.term)
         ethnicities = [c.ethnicity for c in by_college_data.data]
         genders = ["Men", "Women"]
         colors = ["#C9A61A", "#E0C970"]
@@ -34,8 +36,8 @@ def get_chart(college, term):
         data = { 'ethnicities' : ethnicities,
             'Men' : men,
             'Women' : women,
-            'MenRatio' : [men[i] * 100 / (men[i] + women[i]) for i in range(len(men))],
-            'WomenRatio' : [women[i] * 100 / (men[i] + women[i]) for i in range(len(women))]
+            'MenRatio' : [men[i] * 100 / (men[i] + women[i]) if (men[i] + women[i]) != 0 else 0 for i in range(len(men))],
+            'WomenRatio' : [women[i] * 100 / (men[i] + women[i]) if (men[i] + women[i]) != 0 else 0 for i in range(len(women))]
         }
 
         # Whole bar stats
@@ -74,20 +76,30 @@ def get_chart(college, term):
         plot.xaxis.major_label_orientation = pi/4
 
         script, div = components(plot)
-        return (script, div)
+        return (script, div, college, college_code)
 
-def college_data(college, term):
-    script, div = get_chart(college, term)
+def college_data(college_code, term):
+    script, div, college, college_code = get_chart(college_code, term)
     context = {
         'script' : script,
-        'div': div
+        'div': div,
+        'college' : college,
+        'college_code' : college_code
     }
 
     return context
 
 def index(request):
-    college = "Total"
+    data = []
+    context = {
+        'data' : data
+    }
+
+    colleges = ["ALL", "CAH", "CBA", "CEDHP", "CECS", "GA", "COHPA", "COM", "CON", "CREOL", "COS", "UGST", "RCHM", "UNDC"]
     term = "Fall 2016"
-    context = college_data(college, term)
+
+    for college_code in colleges:
+        curr_context = college_data(college_code, term)
+        data.append(curr_context)
 
     return render(request, 'data_visualization/index.html', context)

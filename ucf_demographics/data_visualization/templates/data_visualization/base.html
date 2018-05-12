@@ -30,6 +30,8 @@
 
 </head>
 <body>
+
+  <!-- HEADER -->
   <nav class="navbar navbar-light bg-light" id="nav">
     <!-- <div class="container" id="nav-content">
       Diversity
@@ -39,31 +41,12 @@
     </div> -->
   </nav>
 
-  <div class="container-fluid" id="content">
-    <div id="content-top">
-      <h1 class="display-4">Gender and Racial Demographics at UCF</h1>
-      <p class="lead">With over 60,000 students, UCF has a mixture of people from
-        vastly different backgrounds. This project aims to visualize UCF's diversity
-        by aggregating data from the official <a href="https://ikm.ucf.edu/facts-and-reports/ucf-fact-book/" target="new">UCF Fact Book</a> and plotting it to
-        conceptualize diversity over the course of the years in specific colleges
-        and the overall student population.</p>
-      <hr class="my-4">
-      <h2>Introduction</h2>
-      <p>Going into a lecture, whether it be an introductory course or a high-level elective,
-        we notice different combinations and patterns of diversity in our classes. Below you
-        will find data that will show those differences across your classes through various
-        groupings you can interact with.</p>
-      <!-- <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-      </p> -->
-    </div>
+  <!-- MAIN CONTENT -->
+  {% block content %}
+  {% endblock %}
 
 
-    {% block content %}
-    {% endblock %}
-
-  </div>
-
+  <!-- FOOTER -->
   <div class="container-fluid" id="footer">
     <div id="footer-content">
       <div class="row">
