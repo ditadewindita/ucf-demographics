@@ -34,8 +34,7 @@ def get_chart(college_code, term):
         men = [c.total.men for c in by_college_data.data]
         women = [c.total.women for c in by_college_data.data]
 
-        data = { #'College' : college,
-            'ethnicities' : ethnicities,
+        data = { 'ethnicities' : ethnicities,
             'EthnicityRatio' : ethnicity_ratio,
             'Men' : men,
             'Women' : women,
@@ -69,7 +68,7 @@ def get_chart(college_code, term):
                 <div class="row justify-content-center" style="margin-top:5px;">
                     <span>@ethnicities students make up&nbsp;</span>
                     <span style="font-weight: bold;">@EthnicityRatio{0.2f}%</span>
-                    <span>&nbsp;of students in this category.</span>
+                    <span>&nbsp;of the """ + title + """.</span>
                 </div>
             </div>
         """)

@@ -34,7 +34,7 @@
           {% for d in data %}
             {% if forloop.first %}
             <li class="nav-item">
-              <a class="nav-link active" id="pills-{{ d.college_code }}-tab" data-toggle="pill" href="#pills-{{ d.college_code }}" role="tab" aria-controls="pills-{{ d.college_code }}" aria-selected="true">{{ d.college }}</a>
+              <a class="nav-link active show" id="pills-{{ d.college_code }}-tab" data-toggle="pill" href="#pills-{{ d.college_code }}" role="tab" aria-controls="pills-{{ d.college_code }}" aria-selected="true">{{ d.college }}</a>
             </li>
             {% else %}
               <li class="nav-item">
