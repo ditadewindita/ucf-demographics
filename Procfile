@@ -1,1 +1,1 @@
-web: gunicorn ucf-demographics.wsgi --log-file -
+web: gunicorn ucf_demographics.wsgi --log-file -
