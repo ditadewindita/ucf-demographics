@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UCF Demographics</title>
+
+  <!-- BOKEH CSS -->
+  <link href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.15.min.css" rel="stylesheet" type="text/css">
+  <link href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.15.min.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.15.min.css" rel="stylesheet" type="text/css">
+  <!-- BOOTSTRAP CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <!-- BOOTSTRAP JS/JQUERY -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  <!-- BOKEH SCRIPTS -->
+  <script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.15.min.js"></script>
+  <script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.15.min.js"></script>
+  <script src="https://cdn.pydata.org/bokeh/release/bokeh-tables--0.12.15.min.js"></script>
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'data_visualization/css/style.css' %}" />
+
+  <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet">
+
+  <!-- PAGE-SPECIFIC JS -->
+  {% block script-content %}
+  {% endblock %}
+
+</head>
+<body>
+
+  <!-- HEADER -->
+  <nav class="navbar navbar-light bg-light" id="nav">
+    <!-- <div class="container" id="nav-content">
+      Diversity
+      <div id="nav-content-sub">
+        An in-depth look at UCF's dynamic student body
+      </div>
+    </div> -->
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  {% block content %}
+  {% endblock %}
+
+
+  <!-- FOOTER -->
+  <div class="container-fluid" id="footer">
+    <!-- <div id="footer-content"> -->
+      <div class="row justify-content-center">
+        <div class="col-4" id="footer-bio">
+          <h5>Made By</h5>
+          <img src="{% static 'data_visualization/images/me.jpg' %}" class="rounded-circle float-left">
+          <br><a href="http://dewindita.me" target="new">Haerunnisa Dewindita</a>
+          <br>B.S Computer Science and Mathematics, Spring '19
+        </div>
+        <div class="col-4">
+          <h5>Credits</h5>
+            <a href="https://ikm.ucf.edu/facts-and-reports/ucf-fact-book/" target="new">UCF Fact Book</a>
+            <br>Header Photo: <a href="https://today.ucf.edu/ucf-in-photos/photos-best-photos-2017/" target="new">UCF Today</a>
+
+          <p style="margin-top:10px">
+            View source code on <a href="https://github.com/ditadewindita/ucf-demographics" target="new">Github</a> | Made with <3 in Orlando, FL
+          </p>
+        </div>
+      <!-- </div> -->
+    </div>
+
+  </div>
+
+</body>
+</html>
