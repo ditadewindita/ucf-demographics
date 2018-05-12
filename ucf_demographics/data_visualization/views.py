@@ -28,12 +28,15 @@ def get_chart(college_code, term):
         college = by_college_data.college
         title = "%s in %s" % (college, by_college_data.term)
         ethnicities = [c.ethnicity for c in by_college_data.data]
+        ethnicity_ratio = [(e.total.men + e.total.women) * 100 / by_college_data.university_total for e in by_college_data.data]
         genders = ["Men", "Women"]
         colors = ["#C9A61A", "#E0C970"]
         men = [c.total.men for c in by_college_data.data]
         women = [c.total.women for c in by_college_data.data]
 
-        data = { 'ethnicities' : ethnicities,
+        data = { #'College' : college,
+            'ethnicities' : ethnicities,
+            'EthnicityRatio' : ethnicity_ratio,
             'Men' : men,
             'Women' : women,
             'MenRatio' : [men[i] * 100 / (men[i] + women[i]) if (men[i] + women[i]) != 0 else 0 for i in range(len(men))],
@@ -41,15 +44,40 @@ def get_chart(college_code, term):
         }
 
         # Whole bar stats
-        hover = HoverTool(tooltips = [
-            ("Men", "@Men (@MenRatio{0.2f}%)"),
-            ("Women", "@Women (@WomenRatio{0.2f}%)")
-        ])
+        # hover = HoverTool(tooltips = [
+        #     ("Men", "@Men (@MenRatio{0.2f}%)"),
+        #     ("Women", "@Women (@WomenRatio{0.2f}%)")
+        # ])
+
+        hover = HoverTool(tooltips = """
+            <div class="container-fluid" style="margin:5px;">
+                <div class="row justify-content-center">
+                    <h4>@ethnicities</h4>
+                </div>
+
+                <div class="row justify-content-center" style="font-size:14px;">
+                    <div class="col text-center">
+                        <span style="font-weight: bold;">@MenRatio{0.2f}%</span>
+                        <br>Men (@Men)
+                    </div>
+                    <div class="col text-center">
+                        <span style="font-weight: bold;">@WomenRatio{0.2f}%</span>
+                        <br>Women (@Women)
+                    </div>
+                </div>
+
+                <div class="row justify-content-center" style="margin-top:5px;">
+                    <span>@ethnicities students make up&nbsp;</span>
+                    <span style="font-weight: bold;">@EthnicityRatio{0.2f}%</span>
+                    <span>&nbsp;of students in this category.</span>
+                </div>
+            </div>
+        """)
 
         # ticker = SingleIntervalTicker(interval = 1000, num_minor_ticks = 0)
         # xaxis = LinearAxis(ticker = ticker, axis_label = 'Number of Students')
 
-        plot = figure(y_range = ethnicities, plot_height = 300, plot_width = 1000, title = title, toolbar_location = None, tools = [hover])
+        plot = figure(y_range = ethnicities, plot_height = 200, sizing_mode = 'scale_width', title = title, toolbar_location = None, tools = [hover])
         renderers = plot.hbar_stack(genders, y = 'ethnicities', height = 0.4, color = colors, source = ColumnDataSource(data), legend = [value(g) for g in genders], name = genders)
 
         # plot.add_layout(xaxis, 'below')

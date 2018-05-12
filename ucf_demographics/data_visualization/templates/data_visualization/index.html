@@ -29,7 +29,7 @@
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
       </p> -->
 
-      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist" style="margin-top:40px;">
         {% if data %}
           {% for d in data %}
             {% if forloop.first %}
@@ -45,24 +45,36 @@
         {% endif %}
       </ul>
 
-      <div class="tab-content" id="pills-tabContent">
+      <div class="tab-content" id="pills-tabContent" style="margin-top:25px">
         {% if data %}
           {% for d in data %}
             {% if forloop.first %}
               <div class="tab-pane fade show active" id="pills-{{ d.college_code }}" role="tabpanel" aria-labelledby="pills-{{ d.college_code }}-tab">
-                <h4>{{ d.college_code }} - {{ d.college }}</h4>
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="alert-heading">{{ d.college_code }} - {{ d.college }}</h4>
+                    Hover over each bar in the graph for more details.
+                  </div>
+                </div>
                 {{ d.div | safe }}
               </div>
             {% else %}
               <!-- BOKEH DIV -->
               <div class="tab-pane fade" id="pills-{{ d.college_code }}" role="tabpanel" aria-labelledby="pills-{{ d.college_code }}-tab">
-                <h4>{{ d.college_code }} - {{ d.college }}</h4>
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="alert-heading">{{ d.college_code }} - {{ d.college }}</h4>
+                    Hover over each bar in the graph for more details.
+                  </div>
+                </div>
+                <!-- <div id="divider"></div> -->
                 {{ d.div | safe }}
               </div>
             {% endif %}
           {% endfor %}
         {% endif %}
       </div>
+
     </div>
   </div>
 {% endblock %}
