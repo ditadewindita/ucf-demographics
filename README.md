@@ -26,11 +26,13 @@ $ python3 manage.py runserver
 - ~~Connect backend~~
 - ~~Create initial Bokeh graph for total university~~
   - ~~With stacked `HBars` and `HoverTools`~~
+  - Create more detailed hover tools
 - Create initial layout with Bootstrap
 - Collect data & turn to CSV:
-  - Fall 2016
+  - ~~Fall 2016~~
   - Spring 2017
   - Summer 2017
   - Fall 2017
   - Spring 2018
-- Create python script to parse CSV to JSON and register to DB
+- ~~Create python script to parse CSV to JSON and register to DB~~
+- Deploy to Heroku
