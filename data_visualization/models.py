@@ -23,7 +23,7 @@ class EthnicityData(models.Model):
         return "Ethnicity: {0}, Total: {1}".format(str(self.ethnicity), str(self.total))
 
 class DataByCollege(models.Model):
-    _id = models.ObjectIdField()
+    # _id = models.ObjectIdField()
     college = models.CharField(max_length = 50)
     college_code = models.CharField(max_length = 50)
     data = models.ArrayModelField(
