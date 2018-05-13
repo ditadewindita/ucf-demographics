@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'ucf_demographics',
-        'ENFORCE_SCHEMA': True,
+        'ENFORCE_SCHEMA': False,
         'HOST': config('DB_HOST'),
         'POST': 27017
     }
