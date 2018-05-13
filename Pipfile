@@ -12,6 +12,7 @@ whitenoise = "*"
 requests = "*"
 python-decouple = "*"
 djongo = "*"
+bokeh = "*"
 
 [dev-packages]
 
