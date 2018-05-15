@@ -1,9 +1,15 @@
 a {
   color: #C9A61A;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 a:hover {
   color:#000;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 #nav {
@@ -77,6 +83,10 @@ a:hover {
   width: 70px;
   margin-right: 15px;
   /* border:5px solid #fff; */
+}
+
+#date_nav {
+  margin-top: 5px;
 }
 
 .nav-link:active:focus, .nav-link.active.show, .nav-link.active, .nav-link:active{

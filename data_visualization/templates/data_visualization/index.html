@@ -4,7 +4,11 @@
 {% block script-content %}
   {% if data %}
     {% for d in data %}
-      {{ d.script | safe }}
+      {% if d.term_data %}
+        {% for t in d.term_data %}
+          {{ t.script | safe }}
+        {% endfor %}
+      {% endif %}
     {% endfor %}
   {% endif %}
 {% endblock %}
@@ -13,7 +17,7 @@
 {% block content %}
   <div class="container-fluid" id="content">
     <div id="content-top">
-      <h1 class="display-4">Gender and Racial Demographics at UCF</h1>
+      <h1 class="display-4"><a href="/">Gender and Racial Demographics at UCF</a></h1>
       <p class="lead">With over 60,000 students, UCF has a mixture of people from
         vastly different backgrounds. This project aims to visualize UCF's diversity
         by aggregating data from the official <a href="https://ikm.ucf.edu/facts-and-reports/ucf-fact-book/" target="new">UCF Fact Book</a> and plotting it to
@@ -32,47 +36,48 @@
       <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist" style="margin-top:40px;">
         {% if data %}
           {% for d in data %}
-            {% if forloop.first %}
             <li class="nav-item">
-              <a class="nav-link active show" id="pills-{{ d.college_code }}-tab" data-toggle="pill" href="#pills-{{ d.college_code }}" role="tab" aria-controls="pills-{{ d.college_code }}" aria-selected="true">{{ d.college }}</a>
-            </li>
-            {% else %}
-              <li class="nav-item">
+              {% if forloop.first %}
+                <a class="nav-link active show" id="pills-{{ d.college_code }}-tab" data-toggle="pill" href="#pills-{{ d.college_code }}" role="tab" aria-controls="pills-{{ d.college_code }}" aria-selected="true">{{ d.college }}</a>
+              {% else %}
                 <a class="nav-link" id="pills-{{ d.college_code }}-tab" data-toggle="pill" href="#pills-{{ d.college_code }}" role="tab" aria-controls="pills-{{ d.college_code }}" aria-selected="false">{{ d.college }}</a>
-              </li>
-            {% endif %}
+              {% endif %}
+            </li>
           {% endfor %}
         {% endif %}
       </ul>
 
       <div class="tab-content" id="pills-tabContent" style="margin-top:25px">
-        {% if data %}
-          {% for d in data %}
-            {% if forloop.first %}
-              <div class="tab-pane fade show active" id="pills-{{ d.college_code }}" role="tabpanel" aria-labelledby="pills-{{ d.college_code }}-tab">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="alert-heading">{{ d.college_code }} - {{ d.college }}</h4>
-                    Hover over each bar in the graph for more details.
+          {% if data %}
+            {% for d in data %}
+              {% if forloop.first %}
+                <div class="tab-pane fade show active" id="pills-{{ d.college_code }}" role="tabpanel" aria-labelledby="pills-{{ d.college_code }}-tab">
+              {% else %}
+                <div class="tab-pane fade" id="pills-{{ d.college_code }}" role="tabpanel" aria-labelledby="pills-{{ d.college_code }}-tab">
+              {% endif %}
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="alert-heading">{{ d.college_code }} - {{ d.college }}</h4>
+                      Hover over each bar in the graph for more details.
+                      <br>Or, select a year:&nbsp;
+                      {% if years %}
+                        {% for y in years %}
+                          <a href="{% url 'year' y.year %}">{{ y.year }}</a>
+                          {% if not forloop.last %}
+                          ,
+                          {% endif %}
+                        {% endfor %}
+                      {% endif %}
+                    </div>
                   </div>
+                  {% if d.term_data %}
+                    {% for t in d.term_data %}
+                      {{ t.div | safe }}
+                    {% endfor %}
+                  {% endif %}
                 </div>
-                {{ d.div | safe }}
-              </div>
-            {% else %}
-              <!-- BOKEH DIV -->
-              <div class="tab-pane fade" id="pills-{{ d.college_code }}" role="tabpanel" aria-labelledby="pills-{{ d.college_code }}-tab">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="alert-heading">{{ d.college_code }} - {{ d.college }}</h4>
-                    Hover over each bar in the graph for more details.
-                  </div>
-                </div>
-                <!-- <div id="divider"></div> -->
-                {{ d.div | safe }}
-              </div>
-            {% endif %}
-          {% endfor %}
-        {% endif %}
+            {% endfor %}
+          {% endif %}
       </div>
 
     </div>
