@@ -1,0 +1,47 @@
+<!-- {% extends 'data_visualization/index.html' %} -->
+
+<!-- BOKEH SCRIPT -->
+{% block script-content %}
+  {% if data %}
+    {% for d in data %}
+      {% if d.term_data %}
+        {% for t in d.term_data %}
+          {{ t.script | safe }}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endblock %}
+
+<div class="tab-content" id="pills-tabContent" style="margin-top:25px">
+    {% if data %}
+      {% for d in data %}
+        {% if forloop.first %}
+          <div class="tab-pane fade show active" id="pills-{{ d.college_code }}" role="tabpanel" aria-labelledby="pills-{{ d.college_code }}-tab">
+        {% else %}
+          <div class="tab-pane fade" id="pills-{{ d.college_code }}" role="tabpanel" aria-labelledby="pills-{{ d.college_code }}-tab">
+        {% endif %}
+            <div class="card">
+              <div class="card-body">
+                <h4 class="alert-heading">{{ d.college_code }} - {{ d.college }}</h4>
+                Hover over each bar in the graph for more details.
+                <br>Or, select a year:&nbsp;
+                {% if years %}
+                  {% for y in years %}
+                    <a href="{% url 'year' y.year %}">{{ y.year }}</a>
+                    {% if not forloop.last %}
+                    ,
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              </div>
+            </div>
+            {% if d.term_data %}
+              {% for t in d.term_data %}
+                {{ t.div | safe }}
+              {% endfor %}
+            {% endif %}
+          </div>
+      {% endfor %}
+    {% endif %}
+</div>

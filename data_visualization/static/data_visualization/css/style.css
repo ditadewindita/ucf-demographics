@@ -1,0 +1,99 @@
+a {
+  color: #C9A61A;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+a:hover {
+  color:#000;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+#nav {
+  height: 400px;
+  padding: 10px;
+  background: gray url("../images/header1.jpg") no-repeat;
+  background-size: cover;
+  background-position: center center;
+  min-width: 840px;
+}
+
+#nav-content {
+  text-align: center;
+  position: relative;
+  padding:10px;
+  font-size: 80px;
+  /* font-family: 'Teko'; */
+  color:#fff;
+  display: block;
+  text-shadow: 5px 5px 5px #333;
+}
+
+#nav-content-sub {
+  display: block;
+  font-size: 25px;
+}
+
+#content {
+  width: 90%;
+  /* min-width: 800px; */
+  background-color: white;
+  padding:10px;
+  position: relative;
+  /* left:35%;
+  transform: translate(-35%, 0%); */
+  z-index: 10;
+  /* margin: 20px; */
+  margin-top: -35px;
+  border-radius: 15px 15px 0px 0px;
+  /* box-shadow: 3px 5px 5px 10px #eee; */
+  margin-bottom: 50px;
+}
+
+#content-top {
+  padding:20px;
+}
+
+/* #divider {
+  display: block;
+  border-bottom:1px solid #aaa;
+  width: 100%;
+} */
+
+/* #pills-tab {
+  margin-top:25px;
+} */
+
+#footer {
+  width: 100%;
+  height:auto;
+  padding:20px;
+  background-color: #F0F0F0;
+}
+
+#footer a {
+  color: #000;
+  text-decoration: underline;
+}
+
+#footer-bio img {
+  width: 70px;
+  margin-right: 15px;
+  /* border:5px solid #fff; */
+}
+
+#date_nav {
+  margin-top: 5px;
+}
+
+.nav-link:active:focus, .nav-link.active.show, .nav-link.active, .nav-link:active{
+  background-color: #C9A61A;
+}
+
+.card {
+  margin-bottom:20px;
+  border-left:5px solid #C9A61A;
+}

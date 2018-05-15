@@ -31,7 +31,7 @@ and `pip install` any required dependencies.
 - Create initial layout with Bootstrap
 - Collect data & turn to CSV:
   - ~~Fall 2016~~
-  - Spring 2017
+  - ~~Spring 2017~~
   - Summer 2017
   - Fall 2017
   - Spring 2018

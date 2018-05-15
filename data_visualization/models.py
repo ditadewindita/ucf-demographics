@@ -34,6 +34,7 @@ class DataByCollege(models.Model):
     )
     university_total = models.IntegerField()
     term = models.CharField(max_length = 50)
+    year = models.IntegerField()
 
     def __str__(self):
         return "College: {0}, Classification: {1}, Data: {2}, Total: {3}, University Total: {4}, Date: {5}".format(self.college, self.classification, self.data, self.total, str(self.university_total), self.date)
